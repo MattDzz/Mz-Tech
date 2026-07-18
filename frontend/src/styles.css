@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+
+    --primary: #6A0DAD;
+    --primary-dark: #4A148C;
+
+    --black: #1E1E1E;
+    --white: #FFFFFF;
+
+    --gray-light: #F5F5F5;
+    --gray: #9CA3AF;
+    --gray-dark: #4B5563;
+
+    --success: #25D366;
+
+    --shadow: 0 10px 25px rgba(0,0,0,.10);
+
+    --radius: 12px;
+
+}

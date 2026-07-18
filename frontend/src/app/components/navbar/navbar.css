@@ -1,0 +1,201 @@
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar {
+    width: 100%;
+    max-width: 100%;
+    min-height: 80px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    padding: 0 60px;
+
+    background-color: var(--primary-dark);
+    color: var(--white);
+
+    box-shadow: var(--shadow);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.logo h2 {
+    color: var(--black);
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ===========================
+   MENÚ
+=========================== */
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    gap: 35px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    list-style: none;
+
+    
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--white);
+
+    font-size: 17px;
+    font-weight: 500;
+
+    transition: all .3s ease;
+}
+
+.menu a:hover {
+    color: var(--primary);
+}
+
+/* ===========================
+   ACCIONES
+=========================== */
+
+.actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ===========================
+   BOTÓN WHATSAPP
+=========================== */
+
+.btn-whatsapp {
+
+    background-color: var(--success);
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: var(--radius);
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    transition: all .3s ease;
+
+}
+
+.btn-whatsapp:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(37, 211, 102, .4);
+
+}
+
+
+/* ===========================
+   BOTÓN inicio de sesion
+=========================== */
+
+.btn-login {
+
+    background-color: var(--primary);
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: var(--radius);
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    transition: all .3s ease;
+
+}
+
+.btn-login:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(212, 10, 199, 0.4);
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 992px) {
+
+    .navbar {
+
+        padding: 0 30px;
+
+    }
+
+    .menu {
+
+        gap: 18px;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        justify-content: center;
+        padding: 20px;
+        gap: 20px;
+
+    }
+
+    .menu {
+
+        width: 100%;
+        order: 3;
+        justify-content: center;
+        gap: 15px;
+
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+}

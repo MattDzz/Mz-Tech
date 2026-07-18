@@ -9,6 +9,7 @@ import { CategoriesPageComponent } from './pages/public/categories/categories';
 import { AboutPageComponent } from './pages/public/about/about';
 import { ContactPageComponent } from './pages/public/contact/contact';
 import { ProductDetailPageComponent } from './pages/public/product-detail/product-detail';
+import { PublicLayoutComponent } from './layouts/public-layout/public-layout';
 
 //Admin
 
@@ -21,22 +22,40 @@ import { SalesPageComponent } from './pages/admin/sales/sales';
 import { BrandsPageComponent } from './pages/admin/brands/brands';
 import { SettingsPageComponent } from './pages/admin/settings/settings';
 import { CategoriesPageComponent as AdminCategories } from './pages/admin/categories/categories';
-
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout';
 
 //Public routes
 
 export const routes: Routes = [
 
-    {path: '', component: HomePageComponent},
-    {path: 'catalog/:id', component: CatalogPageComponent},
-    {path: 'categories', component: CategoriesPageComponent},
-    {path: 'about', component: AboutPageComponent},
-    {path: 'contact', component: ContactPageComponent},
-    {path: 'product-detail', component: ProductDetailPageComponent},
+    {
+        path: '',
+        component: PublicLayoutComponent,
+        children: [
+    
+    {path: '',
+        component: HomePageComponent},
 
+    {path: 'catalog/:id', 
+        component: CatalogPageComponent},
 
+    {path: 'categories', 
+        component: CategoriesPageComponent},
 
-//Admin routes
+    {path: 'about', 
+        component: AboutPageComponent},
+
+    {path: 'contact', 
+        component: ContactPageComponent},
+
+    {path: 'product-detail', 
+        component: ProductDetailPageComponent},
+
+    
+        ]
+    },
+
+/* //Admin routes
     {path: 'admin/login', component: LoginPageComponent},
     {path: 'admin/dashboard', component: DashboardPageComponent},
     {path: 'admin/users', component: UsersPageComponent},
@@ -46,7 +65,7 @@ export const routes: Routes = [
     {path: 'admin/brands', component: BrandsPageComponent},
     {path: 'admin/settings', component: SettingsPageComponent},
     {path: 'admin/categories', component: AdminCategories},
-
+ */
 
 //Route not found/ruta no encontrada
 
