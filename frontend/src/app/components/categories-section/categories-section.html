@@ -1,0 +1,61 @@
+<!-- ======================================
+     SECCIÓN DE CATEGORÍAS
+======================================= -->
+
+<section class="categories">
+
+    <!-- Título principal -->
+    <h2>
+
+        Explora nuestras categorías
+
+    </h2>
+
+    <!-- Descripción -->
+    <p>
+
+        Encuentra fácilmente la tecnología que necesitas.
+
+    </p>
+
+    <!-- Contenedor de las tarjetas -->
+    <div class="categories-grid">
+
+        <!--
+            @for recorre el arreglo "categories"
+
+            category = variable temporal
+
+            categories = arreglo que está en el TS
+
+            track category.name = Angular usa el nombre
+            como identificador para mejorar el rendimiento
+        -->
+
+        @for(category of categories; track category.name){
+
+            <!-- Tarjeta -->
+
+            <div class="card">
+
+                <!-- Icono -->
+                <span>
+
+                    {{ category.icon }}
+
+                </span>
+
+                <!-- Nombre -->
+                <h3>
+
+                    {{ category.name }}
+
+                </h3>
+
+            </div>
+
+        }
+
+    </div>
+
+</section>

@@ -1,0 +1,88 @@
+/* ===========================
+    CONTENEDOR DEL BUSCADOR
+=========================== */
+
+.search-container{
+
+    /* Centra el buscador */
+    display:flex;
+
+    justify-content:center;
+
+    /* Espacio arriba y abajo */
+    padding:40px 20px;
+
+    background:var(--gray-light);
+
+}
+
+/* ===========================
+    CAJA DEL BUSCADOR
+=========================== */
+
+.search-box{
+
+    /* Coloca el input y el botón en línea */
+    display:flex;
+
+    width:100%;
+
+    max-width:900px;
+
+    background:white;
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ===========================
+    INPUT
+=========================== */
+
+.search-box input{
+
+    flex:1;
+
+    padding:18px;
+
+    border:none;
+
+    outline:none;
+
+    font-size:17px;
+
+}
+
+/* ===========================
+    BOTÓN
+=========================== */
+
+.search-box button{
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+    padding:0 35px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+/* ===========================
+    EFECTO HOVER
+=========================== */
+
+.search-box button:hover{
+
+    background:var(--primary-dark);
+
+}

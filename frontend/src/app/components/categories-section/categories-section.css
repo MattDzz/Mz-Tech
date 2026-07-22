@@ -1,0 +1,133 @@
+/* ======================================
+   CONTENEDOR GENERAL
+====================================== */
+
+.categories{
+
+    padding:80px 10%;
+
+    background:#f7f7f7;
+
+    text-align:center;
+
+}
+
+/* ======================================
+   TÍTULO
+====================================== */
+
+.categories h2{
+
+    font-size:40px;
+
+    color:var(--primary-dark);
+
+    margin-bottom:10px;
+
+}
+
+/* ======================================
+   DESCRIPCIÓN
+====================================== */
+
+.categories p{
+
+    color:#666;
+
+    margin-bottom:50px;
+
+    font-size:18px;
+
+}
+
+/* ======================================
+   GRID
+====================================== */
+
+.categories-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+}
+
+/* ======================================
+   TARJETA
+====================================== */
+
+.card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ======================================
+   EFECTO HOVER
+====================================== */
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+/* ======================================
+   ICONO
+====================================== */
+
+.card span{
+
+    font-size:55px;
+
+    display:block;
+
+    margin-bottom:20px;
+
+}
+
+/* ======================================
+   NOMBRE
+====================================== */
+
+.card h3{
+
+    color:var(--primary-dark);
+
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+@media(max-width:992px){
+
+    .categories-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .categories-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
