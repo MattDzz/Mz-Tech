@@ -1,17 +1,20 @@
 const express = require('express');
 const cors = require('cors');
 
-const app = express(); //cerebro de la API
+const routes = require('./routes/index.routes');
 
-// Middleware
-app.use(cors()); //Permite que Angular pueda consumir nuestra API.
-app.use(express.json());//Permite recibir datos en formato JSON.
+const app = express();
 
-// Ruta de prueba
+app.use(cors());
+app.use(express.json());
+
 app.get('/', (req, res) => {
     res.json({
         mensaje: '🚀 Bienvenido a la API de MZ Tech Store'
     });
 });
+
+// API v1
+app.use('/api/v1', routes);
 
 module.exports = app;
