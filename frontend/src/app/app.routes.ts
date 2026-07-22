@@ -36,6 +36,9 @@ export const routes: Routes = [
     {path: '',
         component: HomePageComponent},
 
+    {path: 'catalog', 
+        component: CatalogPageComponent},
+
     {path: 'catalog/:id', 
         component: CatalogPageComponent},
 

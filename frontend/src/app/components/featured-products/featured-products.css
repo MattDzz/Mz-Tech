@@ -1,0 +1,165 @@
+/* =====================================
+    CONTENEDOR
+===================================== */
+
+.featured-products{
+
+    padding:80px 10%;
+
+    text-align:center;
+
+}
+
+/* =====================================
+    TÍTULO
+===================================== */
+
+.featured-products h2{
+
+    font-size:40px;
+
+    color:var(--primary-dark);
+
+}
+
+.featured-products p{
+
+    margin:15px 0 50px;
+
+    color:#666;
+
+}
+
+/* =====================================
+    GRID
+===================================== */
+
+.products-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+}
+
+/* =====================================
+    TARJETA
+===================================== */
+
+.product-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+/* =====================================
+    HOVER
+===================================== */
+
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+/* =====================================
+    IMAGEN
+===================================== */
+
+.product-card img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/* =====================================
+    NOMBRE
+===================================== */
+
+.product-card h3{
+
+    margin:20px 0 10px;
+
+    color:var(--black);
+
+}
+
+/* =====================================
+    PRECIO
+===================================== */
+
+.product-card h4{
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+/* =====================================
+    BOTÓN
+===================================== */
+
+.product-card button{
+
+    width:90%;
+
+    margin-bottom:20px;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    background:var(--success);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.product-card button:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* =====================================
+    RESPONSIVE
+===================================== */
+
+@media(max-width:992px){
+
+    .products-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .products-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

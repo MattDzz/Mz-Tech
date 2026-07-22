@@ -1,0 +1,47 @@
+<!-- ==========================================
+     SECCIÓN DE MARCAS
+=========================================== -->
+
+<section class="brands">
+
+    <!-- Título -->
+
+    <h2>
+
+        Trabajamos con las mejores marcas
+
+    </h2>
+
+    <!-- Descripción -->
+
+    <p>
+
+        Productos originales de fabricantes reconocidos.
+
+    </p>
+
+    <!-- Grid -->
+
+    <div class="brands-grid">
+
+        <!--
+            Recorremos el arreglo de marcas.
+
+            brand = marca actual
+
+            brands = arreglo del TS
+        -->
+
+        @for(brand of brands; track brand){
+
+            <div class="brand-card">
+
+                {{ brand }}
+
+            </div>
+
+        }
+
+    </div>
+
+</section>

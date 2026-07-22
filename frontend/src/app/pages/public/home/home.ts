@@ -10,6 +10,12 @@ import { SearchBarComponent } from '../../../components/search-bar/search-bar';
 //Importamos la seccion de categorias
 import { CategoriesSectionComponent } from '../../../components/categories-section/categories-section';
 
+// Importamos la sección de productos destacados
+import { FeaturedProductsComponent } from '../../../components/featured-products/featured-products';
+
+// Sección de marcas
+import { BrandsSectionComponent } from '../../../components/brands-section/brands-section';
+
 @Component({
 
   // Nombre del componente
@@ -22,7 +28,9 @@ import { CategoriesSectionComponent } from '../../../components/categories-secti
   imports: [
     HeroComponent,
     SearchBarComponent,
-    CategoriesSectionComponent
+    CategoriesSectionComponent,
+    FeaturedProductsComponent,
+    BrandsSectionComponent
   ],
 
   // Vista HTML
