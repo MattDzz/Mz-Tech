@@ -1,0 +1,177 @@
+<!-- ===================================================
+    FOOTER MZ-TECH
+=================================================== -->
+
+<footer class="footer">
+
+    <!-- Contenedor principal -->
+
+    <div class="footer-container">
+
+        <!-- ==========================================
+            LOGO
+        =========================================== -->
+
+        <div class="footer-about">
+
+            <h2>
+
+                🖥️ MZTECH
+
+            </h2>
+
+            <p>
+
+                Tecnología para todos.
+                Encuentra los mejores accesorios y equipos
+                al mejor precio.
+
+            </p>
+
+        </div>
+
+        <!-- ==========================================
+            EMPRESA
+        =========================================== -->
+
+        <div class="footer-column">
+
+            <h3>
+
+                Empresa
+
+            </h3>
+
+            @for(item of menu; track item.route){
+
+                <a [routerLink]="item.route">
+
+                    {{ item.title }}
+
+                </a>
+
+            }
+
+        </div>
+
+        <!-- ==========================================
+            CATEGORÍAS
+        =========================================== -->
+
+        <div class="footer-column">
+
+            <h3>
+
+                Categorías
+
+            </h3>
+
+            @for(category of categories; track category){
+
+                <a>
+
+                    {{ category }}
+
+                </a>
+
+            }
+
+        </div>
+
+        <!-- ==========================================
+            CONTACTO
+        =========================================== -->
+
+        <div class="footer-column">
+
+            <h3>
+
+                Contacto
+
+            </h3>
+
+            <a>
+
+                📱 WhatsApp
+
+            </a>
+
+            <a>
+
+                ✉ contacto@mztech.com
+
+            </a>
+
+            <a>
+
+                📍 Bogotá - Colombia
+
+            </a>
+
+        </div>
+
+        <!-- ==========================================
+            REDES
+        =========================================== -->
+
+        <div class="footer-column">
+
+            <h3>
+
+                Síguenos
+
+            </h3>
+
+            @for(social of socials; track social.name){
+
+                <a>
+
+                    {{ social.name }}
+
+                </a>
+
+            }
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+        MÉTODOS DE PAGO
+    =========================================== -->
+
+    <div class="payments">
+
+        <h3>
+
+            Métodos de Pago
+
+        </h3>
+
+        <div class="payments-container">
+
+            @for(payment of payments; track payment){
+
+                <span>
+
+                    {{ payment }}
+
+                </span>
+
+            }
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+        COPYRIGHT
+    =========================================== -->
+
+    <div class="copyright">
+
+        © 2026 MZ-Tech | Todos los derechos reservados.
+
+    </div>
+
+</footer>

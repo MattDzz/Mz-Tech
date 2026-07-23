@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { NavbarComponent } from '../../components/navbar/navbar';
-import { FooterComponent } from '../../components/footer/footer';
+import { NavbarComponent } from '../../components/public/navbar/navbar';
+import { PublicFooterComponent } from '../../components/public/public-footer/public-footer';
 
 @Component({
   selector: 'app-public-layout',
@@ -10,7 +10,7 @@ import { FooterComponent } from '../../components/footer/footer';
   imports: [
   RouterOutlet,
   NavbarComponent,
-  FooterComponent 
+  PublicFooterComponent 
   
 ],
   templateUrl: './public-layout.html',
