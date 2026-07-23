@@ -1,8 +1,8 @@
 const productosModel = require('../models/productos.model');
 
-const obtenerProductos = async () => {
+const obtenerProductos = async (filtros) => {
 
-    return await productosModel.obtenerProductos();
+    return await productosModel.obtenerProductos(filtros);
 
 };
 

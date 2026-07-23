@@ -1,8 +1,8 @@
 const pool = require('../config/database');
 
-const obtenerProductos = async () => {
+const obtenerProductos = async (filtros) => {
 
-    const [rows] = await pool.query(`
+    let sql = `
         SELECT
             p.id,
             p.nombre,
@@ -20,10 +20,39 @@ const obtenerProductos = async () => {
         INNER JOIN marcas m
             ON p.marca_id = m.id
         WHERE p.estado = 1
-        ORDER BY p.nombre ASC
-    `);
+    `;
+
+    const valores = [];
+
+    if (filtros.buscar) {
+        sql += " AND p.nombre LIKE ?";
+        valores.push(`%${filtros.buscar}%`);
+    }
+
+    if (filtros.categoria) {
+        sql += " AND p.categoria_id = ?";
+        valores.push(filtros.categoria);
+    }
+
+    if (filtros.marca) {
+        sql += " AND p.marca_id = ?";
+        valores.push(filtros.marca);
+    }
+
+    if (filtros.stock === "true") {
+        sql += " AND p.stock > 0";
+    }
+
+    if (filtros.destacado === "true") {
+        sql += " AND p.destacado = 1";
+    }
+
+    sql += " ORDER BY p.nombre ASC";
+
+    const [rows] = await pool.query(sql, valores);
 
     return rows;
+
 };
 
 module.exports = {

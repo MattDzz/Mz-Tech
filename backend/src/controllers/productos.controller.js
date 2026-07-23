@@ -4,16 +4,23 @@ const obtenerProductos = async (req, res) => {
 
     try {
 
-        const productos = await productosService.obtenerProductos();
+        const filtros = req.query;
 
-        res.status(200).json(productos);
+        const productos = await productosService.obtenerProductos(filtros);
+
+        res.status(200).json({
+            success: true,
+            message: "Productos obtenidos correctamente",
+            data: productos
+        });
 
     } catch (error) {
 
         console.error(error);
 
         res.status(500).json({
-            mensaje: 'Error al obtener los productos'
+            success: false,
+            message: "Error al obtener los productos"
         });
 
     }
