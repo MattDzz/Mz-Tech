@@ -1,3 +1,4 @@
+//models habla con la base de datos, servicios habla con los modelos y controladores hablan con los servicios.
 const pool = require('../config/database');
 
 const obtenerProductos = async (filtros) => {
@@ -58,3 +59,13 @@ const obtenerProductos = async (filtros) => {
 module.exports = {
     obtenerProductos
 };
+
+const crearproducto = async (producto) =>
+{
+    const { nombre, descripcion, precio, stock, imagen, categoria_id, marca_id, destacado } = producto;
+    const [result] = await pool.query(
+        'INSERT INTO productos (nombre, descripcion, precio, stock, imagen, categoria_id, marca_id, destacado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [nombre, descripcion, precio, stock, imagen, categoria_id, marca_id, destacado]
+    );
+    return result;
+}

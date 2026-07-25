@@ -1,3 +1,4 @@
+// controllers hablan con los servicios y servicios hablan con los modelos.
 const productosService = require('../services/productos.service');
 
 const obtenerProductos = async (req, res) => {
