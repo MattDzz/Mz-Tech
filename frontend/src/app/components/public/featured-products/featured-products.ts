@@ -1,75 +1,45 @@
-// Importamos Component
+// ======================================================
+// IMPORTACIONES
+// ======================================================
+
 import { Component } from '@angular/core';
+
+// Componente de la tarjeta del producto
+import { ProductCardComponent } from '../product-card/product-card';
+
+// Servicio de productos
+import { ProductService } from '../../../services/product';
+import { Product } from '../../../interfaces/product.interface';
 
 @Component({
 
-  // Nombre del componente
   selector: 'app-featured-products',
 
-  // Standalone
   standalone: true,
 
-  // No necesita importar otros componentes
-  imports: [],
+  imports: [
 
-  // HTML
+    ProductCardComponent
+
+  ],
+
   templateUrl: './featured-products.html',
 
-  // CSS
   styleUrl: './featured-products.css'
 
 })
 
-// Clase principal
 export class FeaturedProductsComponent {
 
-  // ====================================================
-  // Productos simulados
-  // ====================================================
-  // Más adelante estos datos vendrán desde la API.
+  products: Product[] = [];
 
-  products = [
+  // ======================================================
+  // CONSTRUCTOR
+  // Angular inyecta automáticamente el servicio.
+  // ======================================================
 
-    {
-
-      image:"https://placehold.co/300x300",
-
-      name:"Mouse Gamer RGB",
-
-      price:45000
-
-    },
-
-    {
-
-      image:"https://placehold.co/300x300",
-
-      name:"Teclado Mecánico",
-
-      price:185000
-
-    },
-
-    {
-
-      image:"https://placehold.co/300x300",
-
-      name:"Audífonos Gamer",
-
-      price:120000
-
-    },
-
-    {
-
-      image:"https://placehold.co/300x300",
-
-      name:"Cargador USB-C",
-
-      price:35000
-
-    }
-
-  ];
+  constructor(private productService: ProductService) {
+    this.products = this.productService.getProducts();
+  }
 
 }

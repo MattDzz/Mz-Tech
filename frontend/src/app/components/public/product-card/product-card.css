@@ -1,0 +1,171 @@
+/* ======================================================
+   TARJETA DEL PRODUCTO
+====================================================== */
+
+.product-card{
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+
+    transition: .3s;
+
+    cursor: pointer;
+
+}
+
+.product-card:hover{
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+
+}
+
+/* ======================================================
+   IMAGEN
+====================================================== */
+
+.product-image{
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: contain;
+
+    padding: 20px;
+
+    background: #f7f7f7;
+
+}
+
+/* ======================================================
+   INFORMACIÓN
+====================================================== */
+
+.product-info{
+
+    padding: 20px;
+
+}
+
+.product-info h3{
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+
+    color: #222;
+
+}
+
+/* ======================================================
+   MARCA
+====================================================== */
+
+.brand{
+
+    color:#666;
+
+    margin-bottom:8px;
+
+}
+
+/* ======================================================
+   CATEGORÍA
+====================================================== */
+
+.category{
+
+    color:#888;
+
+    margin-bottom:12px;
+
+}
+
+/* ======================================================
+   STOCK
+====================================================== */
+
+.stock{
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+
+.available{
+
+    color:#28a745;
+
+}
+
+.unavailable{
+
+    color:#dc3545;
+
+}
+
+/* ======================================================
+   PRECIO
+====================================================== */
+
+.price{
+
+    font-size:26px;
+
+    font-weight:bold;
+
+    color:var(--primary-dark);
+
+    margin-bottom:20px;
+
+}
+
+/* ======================================================
+   BOTÓN
+====================================================== */
+
+button{
+
+    width:100%;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:var(--primary-dark);
+
+}
+
+button:disabled{
+
+    background:#bdbdbd;
+
+    cursor:not-allowed;
+
+}

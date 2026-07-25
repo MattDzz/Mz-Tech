@@ -33,14 +33,20 @@
 }
 
 /* ===================================================
-   LOGO
+    LOGO
 =================================================== */
 
 .footer-about h2{
 
-    font-size:36px;
+    font-size:38px;
 
-    margin-bottom:20px;
+    font-weight:700;
+
+    color:white;
+
+    margin-bottom:18px;
+
+    letter-spacing:2px;
 
 }
 
@@ -75,33 +81,35 @@
 }
 
 /* ===================================================
-   ENLACES
+    ENLACES DEL FOOTER
 =================================================== */
 
 .footer-column a{
 
-    text-decoration:none;
-
     color:#d7d7d7;
+
+    text-decoration:none;
 
     margin-bottom:14px;
 
-    transition:.3s;
+    transition:all .30s ease;
 
-    cursor:pointer;
+    display:inline-block;
 
 }
+
+/* Hover de los enlaces */
 
 .footer-column a:hover{
 
     color:white;
 
-    transform:translateX(6px);
+    padding-left:8px;
 
 }
 
 /* ===================================================
-   PAGOS
+    PAGOS
 =================================================== */
 
 .payments{
@@ -129,6 +137,40 @@
     gap:18px;
 
     flex-wrap:wrap;
+
+}
+
+/* ===================================================
+    TARJETAS DE PAGO
+=================================================== */
+
+.payment-card{
+
+    min-width:130px;
+
+    padding:14px 22px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:all .3s ease;
+
+    cursor:pointer;
+
+}
+
+.payment-card:hover{
+
+    background:var(--primary);
+
+    transform:translateY(-6px);
+
+    box-shadow:0 12px 30px rgba(128,0,255,.35);
 
 }
 

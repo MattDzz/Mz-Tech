@@ -39,7 +39,7 @@ export const routes: Routes = [
     {path: 'catalog', 
         component: CatalogPageComponent},
 
-    {path: 'catalog/:id', 
+    {path: 'catalog', 
         component: CatalogPageComponent},
 
     {path: 'categories', 
@@ -51,7 +51,7 @@ export const routes: Routes = [
     {path: 'contact', 
         component: ContactPageComponent},
 
-    {path: 'product-detail', 
+    {path: 'product-detail/:id', 
         component: ProductDetailPageComponent},
 
     

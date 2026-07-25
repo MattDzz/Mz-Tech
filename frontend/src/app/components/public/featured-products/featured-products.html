@@ -1,59 +1,43 @@
-<!-- =====================================
+<!-- ======================================================
     PRODUCTOS DESTACADOS
-====================================== -->
+====================================================== -->
 
 <section class="featured-products">
 
     <!-- Título -->
-    <h2>
 
-        Productos Destacados
+    <div class="section-title">
 
-    </h2>
+        <h2>
 
-    <!-- Descripción -->
-    <p>
+            Productos Destacados
 
-        Descubre algunos de nuestros productos más vendidos.
+        </h2>
 
-    </p>
+        <p>
+
+            Descubre algunos de nuestros productos más vendidos.
+
+        </p>
+
+    </div>
 
     <!-- Grid de productos -->
+
     <div class="products-grid">
 
-        <!-- Recorremos la lista -->
-        @for(product of products; track product.name){
+        <!--
+            @for recorre todos los productos
+            obtenidos desde ProductService
+        -->
 
-            <div class="product-card">
+        @for(product of products; track product.id){
 
-                <!-- Imagen -->
-                <img
-                    [src]="product.image"
-                    [alt]="product.name"
-                >
+            <app-product-card
 
-                <!-- Nombre -->
-                <h3>
+                [product]="product">
 
-                    {{product.name}}
-
-                </h3>
-
-                <!-- Precio -->
-                <h4>
-
-                    $ {{product.price}}
-
-                </h4>
-
-                <!-- Botón -->
-                <button>
-
-                    Comprar por WhatsApp
-
-                </button>
-
-            </div>
+            </app-product-card>
 
         }
 

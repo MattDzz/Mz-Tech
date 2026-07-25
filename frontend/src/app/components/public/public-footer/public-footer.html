@@ -137,32 +137,22 @@
     </div>
 
     <!-- ==========================================
-        MÉTODOS DE PAGO
-    =========================================== -->
+    MÉTODOS DE PAGO
+========================================== -->
 
-    <div class="payments">
+<div class="payments-container">
 
-        <h3>
+    @for(payment of payments; track payment){
 
-            Métodos de Pago
+        <div class="payment-card">
 
-        </h3>
-
-        <div class="payments-container">
-
-            @for(payment of payments; track payment){
-
-                <span>
-
-                    {{ payment }}
-
-                </span>
-
-            }
+            {{ payment }}
 
         </div>
 
-    </div>
+    }
+
+</div>
 
     <!-- ==========================================
         COPYRIGHT

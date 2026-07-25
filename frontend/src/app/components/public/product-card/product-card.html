@@ -1,0 +1,86 @@
+
+
+<!-- ======================================================
+     TARJETA DEL PRODUCTO
+====================================================== -->
+
+<div class="product-card">
+
+    <!-- Imagen del producto -->
+    <img
+        [src]="product.image"
+        [alt]="product.name"
+        class="product-image"
+    >
+
+    <!-- Información -->
+    <div class="product-info">
+
+        <!-- Nombre -->
+        <h3>
+
+            {{ product.name }}
+
+        </h3>
+
+        <!-- Marca -->
+
+        <p class="brand">
+
+            {{ product.brand }}
+
+        </p>
+
+        <!-- Categoría -->
+
+        <p class="category">
+
+            {{ product.category }}
+
+        </p>
+
+        <!-- Stock -->
+
+        @if(product.stock > 0){
+
+            <p class="stock available">
+
+                ✔ Disponible ({{ product.stock }} unidades)
+
+            </p>
+
+        } @else {
+
+            <p class="stock unavailable">
+
+                ❌ Agotado
+
+            </p>
+
+        }
+
+        <!-- Precio -->
+
+        <p class="price">
+
+            {{ product.price | currency:'COP':'symbol':'1.0-0' }}
+
+        </p>
+
+<!-- ======================================================
+    BOTÓN VER DETALLES
+====================================================== -->
+
+<button
+
+    [disabled]="product.stock === 0"
+
+    (click)="viewDetail()">
+
+    Ver detalles
+
+</button>
+
+    </div>
+
+</div>
