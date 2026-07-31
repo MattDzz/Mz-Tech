@@ -28,6 +28,34 @@ const obtenerProductos = async (req, res) => {
 
 };
 
+const agregarProducto = async (req, res) => {
+
+    try {
+
+        const producto = req.body;
+
+        const nuevoProducto = await productosService.agregarProducto(producto);
+
+        res.status(201).json({
+            success: true,
+            message: "Producto agregado correctamente",
+            data: nuevoProducto
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
+};
+
 module.exports = {
-    obtenerProductos
+    obtenerProductos,
+    agregarProducto
 };

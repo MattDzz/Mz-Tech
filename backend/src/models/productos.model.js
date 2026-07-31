@@ -56,10 +56,6 @@ const obtenerProductos = async (filtros) => {
 
 };
 
-module.exports = {
-    obtenerProductos
-};
-
 const crearproducto = async (producto) =>
 {
     const { nombre, descripcion, precio, stock, imagen, categoria_id, marca_id, destacado } = producto;
@@ -69,3 +65,21 @@ const crearproducto = async (producto) =>
     );
     return result;
 }
+
+const agregarProducto = async (producto) => {
+    try {
+        const result = await crearproducto(producto);
+        return { success: true, message: 'Producto agregado correctamente', id: result.insertId };
+
+    } catch (error) {
+        console.error('Error al agregar el producto:', error);
+        return { success: false, message: 'Error al agregar el producto' };
+    }
+};
+
+
+
+module.exports = {
+    obtenerProductos,
+    agregarProducto
+};
