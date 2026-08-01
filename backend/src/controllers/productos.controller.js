@@ -55,7 +55,38 @@ const agregarProducto = async (req, res) => {
 
 };
 
+const actualizarProducto = async (req, res) => {
+
+    try {
+
+        const { id } = req.params;
+        const producto = req.body;
+
+        const resultado = await productosService.actualizarProducto(id, producto);
+
+        res.status(200).json({
+            success: true,
+            message: "Producto actualizado correctamente",
+            data: resultado
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
+};
+
+
+
 module.exports = {
     obtenerProductos,
-    agregarProducto
+    agregarProducto,
+    actualizarProducto  
 };

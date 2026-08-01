@@ -77,9 +77,15 @@ const agregarProducto = async (producto) => {
     }
 };
 
+const actualizarProducto = async (id, producto) => {
+    const { nombre, descripcion, precio, stock, imagen, categoria_id, marca_id, destacado } = producto;
+    const [result] = await pool.query( 'UPDATE productos SET nombre = ?, descripcion = ?, precio = ?, stock = ?, imagen = ?, categoria_id = ?, marca_id = ?, destacado = ? WHERE id = ?', [nombre, descripcion, precio, stock, imagen, categoria_id, marca_id, destacado, id] );
+    return result.affectedRows > 0;
+}
 
 
 module.exports = {
     obtenerProductos,
+    actualizarProducto,
     agregarProducto
 };
