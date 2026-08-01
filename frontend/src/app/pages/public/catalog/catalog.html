@@ -1,5 +1,5 @@
 <!-- ======================================================
-    PÁGINA DEL CATÁLOGO
+    CATÁLOGO
 ====================================================== -->
 
 <section class="catalog-page">
@@ -22,10 +22,58 @@
 
     </div>
 
-    <!-- Aquí más adelante agregaremos:
-        - Barra de búsqueda
-        - Filtros
-        - Grid de productos
-    -->
+    <!-- Contenido -->
+
+    <div class="catalog-container">
+
+        <!-- Panel de filtros -->
+
+        <app-catalog-filters></app-catalog-filters>
+
+
+
+        <!-- ======================================================
+    ZONA DE PRODUCTOS
+====================================================== -->
+
+<section class="catalog-content">
+
+    <!-- Título -->
+    <h2>
+
+        Productos disponibles
+
+    </h2>
+
+    <!-- ======================================================
+    BUSCADOR DEL CATÁLOGO
+====================================================== -->
+
+<app-catalog-search></app-catalog-search>
+
+    <!-- Grid de productos -->
+
+    <div class="products-grid">
+
+        <!--
+            Recorre todos los productos del servicio.
+            track product.id mejora el rendimiento.
+        -->
+
+        @for (product of products; track product.id) {
+
+            <app-product-card
+
+                [product]="product">
+
+            </app-product-card>
+
+        }
+
+    </div>
 
 </section>
+
+</div> <!-- Fin de catalog-container -->
+
+</section> <!-- Fin de catalog-page -->

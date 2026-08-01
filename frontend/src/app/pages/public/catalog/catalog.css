@@ -1,43 +1,47 @@
 /* ======================================================
-    PÁGINA
+   CONTENEDOR
 ====================================================== */
 
-.catalog-page{
+.catalog-container{
 
-    padding:80px 8%;
+    display:grid;
 
-    min-height:100vh;
+    grid-template-columns:280px 1fr;
 
-    background:#f5f6fa;
+    gap:40px;
+
+    margin-top:50px;
 
 }
 
 /* ======================================================
-    ENCABEZADO
+   CONTENIDO
 ====================================================== */
 
-.catalog-header{
+.catalog-content{
 
-    text-align:center;
+    background:white;
 
-    margin-bottom:50px;
+    border-radius:18px;
 
-}
+    padding:30px;
 
-.catalog-header h1{
-
-    font-size:48px;
-
-    color:var(--primary-dark);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
 
-.catalog-header p{
+/* ======================================================
+   GRID DE PRODUCTOS
+====================================================== */
 
-    color:#666;
+.products-grid{
 
-    margin-top:10px;
+    display:grid;
 
-    font-size:18px;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+
+    gap:30px;
+
+    margin-top:30px;
 
 }
