@@ -33,7 +33,7 @@ export class ProductService {
 
       stock: 25,
 
-      image: 'assets/products/mouse.jpg',
+      image: 'products/mouse.jpg',
 
       brand: 'Logitech',
 
@@ -55,7 +55,7 @@ export class ProductService {
 
       stock: 18,
 
-      image: 'assets/products/keyboard.jpg',
+      image: 'products/keyboard.jpg',
 
       brand: 'Redragon',
 
@@ -77,7 +77,7 @@ export class ProductService {
 
       stock: 12,
 
-      image: 'assets/products/headset.jpg',
+      image: 'products/headset.jpg',
 
       brand: 'HyperX',
 
