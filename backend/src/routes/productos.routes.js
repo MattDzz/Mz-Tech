@@ -9,4 +9,8 @@ router.post('/', productosController.agregarProducto);
 
 router.put('/:id', productosController.actualizarProducto);
 
+router.delete('/:id', productosController.eliminarProducto);
+
+router.patch('/:id/stock', productosController.actualizarStock);
+
 module.exports = router;

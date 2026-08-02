@@ -83,10 +83,66 @@ const actualizarProducto = async (req, res) => {
 
 };
 
+const eliminarProducto = async (req, res) => {
+
+    try {
+
+        const { id } = req.params;
+
+        const resultado = await productosService.eliminarProducto(id);
+
+        res.status(200).json({
+            success: true,
+            message: "Producto eliminado correctamente",
+            data: resultado
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
+};
+
+
+const actualizarStock = async (req, res) => {
+
+    try {
+        const { id } = req.params;
+        const { stock } = req.body;
+
+        const resultado = await productosService.actualizarStock(id, stock);
+
+        res.status(200).json({
+            success: true,
+            message: "Stock actualizado correctamente",
+            data: resultado
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
+};
 
 
 module.exports = {
     obtenerProductos,
     agregarProducto,
-    actualizarProducto  
+    actualizarProducto,
+    eliminarProducto,
+    actualizarStock
 };

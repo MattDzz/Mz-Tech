@@ -65,8 +65,42 @@ if (resultado.affectedRows === 0) {
 return resultado;
 }
 
+const eliminarProducto = async (id) => {
+
+    const resultado = await productosModel.eliminarProducto(id);
+
+    if (resultado.affectedRows === 0) {
+        throw new Error("Producto no encontrado");
+    }
+
+    return resultado;
+
+};
+
+
+const actualizarStock = async (id, stock) => {
+
+    if (stock < 0) {
+        throw new Error("El stock no puede ser negativo");
+    }
+
+    const resultado = await productosModel.actualizarStock(id, stock);
+
+    if (resultado.affectedRows === 0) {
+        throw new Error("Producto no encontrado");
+    }
+
+    return resultado;
+
+};
+
+
+
+
 module.exports = {
     obtenerProductos,
     agregarProducto,
-    actualizarProducto
+    actualizarProducto,
+    eliminarProducto,
+    actualizarStock
 };
