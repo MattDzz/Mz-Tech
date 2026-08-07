@@ -42,15 +42,12 @@
 
             </h3>
 
-            @for(item of menu; track item.route){
+            <a *ngFor="let item of menu"
+               [routerLink]="item.route">
 
-                <a [routerLink]="item.route">
+                {{ item.title }}
 
-                    {{ item.title }}
-
-                </a>
-
-            }
+            </a>
 
         </div>
 
@@ -66,15 +63,11 @@
 
             </h3>
 
-            @for(category of categories; track category){
+            <a *ngFor="let category of categories">
 
-                <a>
+                {{ category }}
 
-                    {{ category }}
-
-                </a>
-
-            }
+            </a>
 
         </div>
 
@@ -122,15 +115,11 @@
 
             </h3>
 
-            @for(social of socials; track social.name){
+            <a *ngFor="let social of socials">
 
-                <a>
+                {{ social.name }}
 
-                    {{ social.name }}
-
-                </a>
-
-            }
+            </a>
 
         </div>
 
@@ -142,15 +131,12 @@
 
 <div class="payments-container">
 
-    @for(payment of payments; track payment){
+    <div class="payment-card"
+         *ngFor="let payment of payments">
 
-        <div class="payment-card">
+        {{ payment }}
 
-            {{ payment }}
-
-        </div>
-
-    }
+    </div>
 
 </div>
 

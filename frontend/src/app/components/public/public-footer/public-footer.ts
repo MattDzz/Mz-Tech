@@ -1,5 +1,6 @@
 // Importamos Component
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // Importamos RouterLink para navegar entre páginas
 import { RouterLink } from '@angular/router';
@@ -15,6 +16,7 @@ import { RouterLink } from '@angular/router';
   // Componentes que utilizará
   imports: [
 
+    CommonModule,
     RouterLink
 
   ],

@@ -1,5 +1,6 @@
 // Importamos Component
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
 
@@ -9,8 +10,9 @@ import { Component } from '@angular/core';
   // Standalone Component
   standalone: true,
 
-  // No necesita importar componentes
-  imports: [],
+  imports: [
+    CommonModule
+  ],
 
   // HTML
   templateUrl: './brands-section.html',

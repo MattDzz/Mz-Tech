@@ -21,40 +21,24 @@
     <!-- Contenedor de las tarjetas -->
     <div class="categories-grid">
 
-        <!--
-            @for recorre el arreglo "categories"
+        <div class="card"
+             *ngFor="let category of categories">
 
-            category = variable temporal
+            <!-- Icono -->
+            <span>
 
-            categories = arreglo que está en el TS
+                {{ category.icon }}
 
-            track category.name = Angular usa el nombre
-            como identificador para mejorar el rendimiento
-        -->
+            </span>
 
-        @for(category of categories; track category.name){
+            <!-- Nombre -->
+            <h3>
 
-            <!-- Tarjeta -->
+                {{ category.name }}
 
-            <div class="card">
+            </h3>
 
-                <!-- Icono -->
-                <span>
-
-                    {{ category.icon }}
-
-                </span>
-
-                <!-- Nombre -->
-                <h3>
-
-                    {{ category.name }}
-
-                </h3>
-
-            </div>
-
-        }
+        </div>
 
     </div>
 

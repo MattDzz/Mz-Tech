@@ -45,30 +45,26 @@
 
     </h2>
 
+
     <!-- ======================================================
     BUSCADOR DEL CATÁLOGO
 ====================================================== -->
 
 <app-catalog-search></app-catalog-search>
 
+
+
     <!-- Grid de productos -->
 
     <div class="products-grid">
 
-        <!--
-            Recorre todos los productos del servicio.
-            track product.id mejora el rendimiento.
-        -->
+        <app-product-card
 
-        @for (product of products; track product.id) {
+            *ngFor="let product of products"
 
-            <app-product-card
+            [product]="product">
 
-                [product]="product">
-
-            </app-product-card>
-
-        }
+        </app-product-card>
 
     </div>
 

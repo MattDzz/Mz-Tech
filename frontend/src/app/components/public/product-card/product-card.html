@@ -4,6 +4,7 @@
      TARJETA DEL PRODUCTO
 ====================================================== -->
 
+
 <div class="product-card">
 
     <!-- Imagen del producto -->
@@ -41,23 +42,19 @@
 
         <!-- Stock -->
 
-        @if(product.stock > 0){
+        <p *ngIf="product.stock > 0"
+           class="stock available">
 
-            <p class="stock available">
+            ✔ Disponible ({{ product.stock }} unidades)
 
-                ✔ Disponible ({{ product.stock }} unidades)
+        </p>
 
-            </p>
+        <p *ngIf="product.stock === 0"
+           class="stock unavailable">
 
-        } @else {
+            ❌ Agotado
 
-            <p class="stock unavailable">
-
-                ❌ Agotado
-
-            </p>
-
-        }
+        </p>
 
         <!-- Precio -->
 

@@ -1,5 +1,6 @@
 // Importamos el decorador Component de Angular
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
 
@@ -9,8 +10,9 @@ import { Component } from '@angular/core';
   // Indicamos que es un componente Standalone
   standalone: true,
 
-  // Este componente no utiliza otros componentes por ahora
-  imports: [],
+  imports: [
+    CommonModule
+  ],
 
   // Archivo HTML
   templateUrl: './categories-section.html',

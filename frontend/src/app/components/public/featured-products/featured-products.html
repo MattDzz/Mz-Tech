@@ -26,20 +26,13 @@
 
     <div class="products-grid">
 
-        <!--
-            @for recorre todos los productos
-            obtenidos desde ProductService
-        -->
+        <app-product-card
 
-        @for(product of products; track product.id){
+            *ngFor="let product of products"
 
-            <app-product-card
+            [product]="product">
 
-                [product]="product">
-
-            </app-product-card>
-
-        }
+        </app-product-card>
 
     </div>
 

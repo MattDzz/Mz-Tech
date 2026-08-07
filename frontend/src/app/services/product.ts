@@ -3,6 +3,8 @@
 // =====================================================
 
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 
 // Interfaz del producto
 import { Product } from '../interfaces/product.interface';
@@ -21,82 +23,54 @@ export class ProductService {
 
   private products: Product[] = [
 
-    {
-
-      id: 1,
-
-      name: 'Mouse Gamer RGB',
-
-      description: 'Mouse gamer con iluminación RGB',
-
-      price: 89900,
-
-      stock: 25,
-
-      image: 'products/mouse.jpg',
-
-      brand: 'Logitech',
-
-      category: 'Mouse',
-
-      active: true
-
-    },
-
-    {
-
-      id: 2,
-
-      name: 'Teclado Mecánico',
-
-      description: 'Teclado mecánico RGB',
-
-      price: 189900,
-
-      stock: 18,
-
-      image: 'products/keyboard.jpg',
-
-      brand: 'Redragon',
-
-      category: 'Teclados',
-
-      active: true
-
-    },
-
-    {
-
-      id: 3,
-
-      name: 'Audífonos Gamer',
-
-      description: 'Audio envolvente 7.1',
-
-      price: 249900,
-
-      stock: 12,
-
-      image: 'products/headset.jpg',
-
-      brand: 'HyperX',
-
-      category: 'Audífonos',
-
-      active: true
-
-    }
-
   ];
 
   // =====================================================
-  // OBTENER TODOS LOS PRODUCTOS
+// OBTENER PRODUCTOS DESDE LA API
+// =====================================================
+
+getProducts(): Observable<Product[]> {
+
+  return this.http
+    .get<any>('http://localhost:3000/api/v1/productos')
+    .pipe(
+
+      map(response =>
+
+        response.data.map((item: any) => ({
+
+          id: item.id,
+
+          name: item.nombre,
+
+          description: item.descripcion,
+
+          price: Number(item.precio),
+
+          stock: item.stock,
+
+          image: item.imagen ?? 'products/no-image.jpg',
+
+          brand: item.marca,
+
+          category: item.categoria,
+
+          active: true
+
+        }))
+
+      )
+
+    );
+
+}
+
   // =====================================================
+// CONSTRUCTOR
+// =====================================================
 
-  getProducts(): Product[] {
-
-    return this.products;
-
-  }
+constructor(
+  private http: HttpClient
+) {}
 
 }

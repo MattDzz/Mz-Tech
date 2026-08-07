@@ -3,6 +3,7 @@
 // ======================================================
 
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // Componente de filtros del catálogo
 import { CatalogFiltersComponent } from '../../../components/public/catalog-filters/catalog-filters';
@@ -27,8 +28,8 @@ import { CatalogSearchComponent } from '../../../components/public/catalog-searc
 
   imports: [
 
+    CommonModule,
     CatalogFiltersComponent,
-
     ProductCardComponent,
     CatalogSearchComponent
 
@@ -50,16 +51,39 @@ export class CatalogPageComponent {
 
   // ======================================================
   // CONSTRUCTOR
-  // Angular inyecta el servicio y carga los productos.
   // ======================================================
 
   constructor(
-
     private productService: ProductService
-
   ) {
 
-    this.products = this.productService.getProducts();
+    this.loadProducts();
+
+  }
+
+  // ======================================================
+  // CARGAR PRODUCTOS DESDE LA API
+  // ======================================================
+
+  loadProducts(): void {
+
+    this.productService.getProducts().subscribe({
+
+      next: (products) => {
+
+        console.log( 'Productos recibidos desde la API:', products );
+
+        this.products = products;
+
+      },
+
+      error: (error) => {
+
+        console.error('Error al cargar los productos:', error);
+
+      }
+
+    });
 
   }
 
