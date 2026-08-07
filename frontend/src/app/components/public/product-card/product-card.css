@@ -169,3 +169,30 @@ button:disabled{
     cursor:not-allowed;
 
 }
+
+/* Responsive tweaks for product card */
+@media (max-width: 900px) {
+    .product-image{
+        height: 180px;
+        padding: 16px;
+    }
+
+    .product-info h3{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-image{
+        height: 150px;
+        padding: 12px;
+    }
+
+    .product-info{
+        padding: 12px;
+    }
+
+    .product-info h3{
+        font-size: 18px;
+    }
+}

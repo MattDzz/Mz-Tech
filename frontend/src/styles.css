@@ -38,3 +38,67 @@ app-root {
     width: 100%;
     min-height: 100vh;
 }
+
+/* Responsive helpers -------------------------------------------------- */
+
+/* Reduce global paddings and make layouts fluid on smaller screens */
+@media (max-width: 900px) {
+    body {
+        font-size: 15px;
+    }
+
+    .catalog-container {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 0 16px;
+        margin-top: 20px;
+    }
+
+    .products-grid {
+        gap: 20px !important;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    }
+
+    .product-image {
+        height: 180px !important;
+        padding: 16px !important;
+    }
+
+    .product-info {
+        padding: 16px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    .product-image {
+        height: 150px !important;
+        padding: 12px !important;
+    }
+
+    .product-info h3 {
+        font-size: 18px !important;
+    }
+
+    button {
+        padding: 12px !important;
+        font-size: 15px !important;
+    }
+
+    .featured-products .products-grid,
+    .catalog-page .products-grid {
+        padding: 0;
+    }
+}
+
+/* Utility: make images and grids fluid */
+img { max-width: 100%; height: auto; }
+
