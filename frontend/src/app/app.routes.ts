@@ -39,9 +39,6 @@ export const routes: Routes = [
     {path: 'catalog', 
         component: CatalogPageComponent},
 
-    {path: 'catalog', 
-        component: CatalogPageComponent},
-
     {path: 'categories', 
         component: CategoriesPageComponent},
 

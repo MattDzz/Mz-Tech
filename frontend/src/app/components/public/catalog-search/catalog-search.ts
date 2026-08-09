@@ -2,7 +2,7 @@
 // IMPORTACIONES
 // ======================================================
 
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 // Módulo para trabajar con formularios
 import { FormsModule } from '@angular/forms';
@@ -32,5 +32,13 @@ export class CatalogSearchComponent {
   // ======================================================
 
   search: string = '';
+
+  @Output() searchChange = new EventEmitter<string>();
+
+  onSearch(): void {
+
+    this.searchChange.emit(this.search);
+
+}
 
 }

@@ -3,7 +3,7 @@
 // =====================================================
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
 // Interfaz del producto
@@ -29,10 +29,15 @@ export class ProductService {
 // OBTENER PRODUCTOS DESDE LA API
 // =====================================================
 
-getProducts(): Observable<Product[]> {
+getProducts(buscar: string = ''): Observable<Product[]> {
+
+  let params = new HttpParams();
+  if (buscar.trim()!== '') {
+    params = params.set('buscar', buscar.trim());
+  }
 
   return this.http
-    .get<any>('http://localhost:3000/api/v1/productos')
+    .get<any>('http://localhost:3000/api/v1/productos', { params })
     .pipe(
 
       map(response =>
@@ -49,7 +54,7 @@ getProducts(): Observable<Product[]> {
 
           stock: item.stock,
 
-          image: item.imagen ?? 'products/no-image.jpg',
+          image: item.imagen ?? 'assets/products/no-image.jpg',
 
           brand: item.marca,
 

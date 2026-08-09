@@ -2,8 +2,12 @@
 // IMPORTACIONES
 // ======================================================
 
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { ChangeDetectorRef } from '@angular/core';
 
 // Componente de filtros del catálogo
 import { CatalogFiltersComponent } from '../../../components/public/catalog-filters/catalog-filters';
@@ -41,7 +45,7 @@ import { CatalogSearchComponent } from '../../../components/public/catalog-searc
 
 })
 
-export class CatalogPageComponent {
+export class CatalogPageComponent implements OnInit, OnDestroy {
 
   // ======================================================
   // LISTA DE PRODUCTOS
@@ -53,13 +57,51 @@ export class CatalogPageComponent {
   // CONSTRUCTOR
   // ======================================================
 
-  constructor(
-    private productService: ProductService
-  ) {
+  private routerSub?: Subscription;
 
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private cd: ChangeDetectorRef
+  ) {}
+
+  ngOnInit(): void {
     this.loadProducts();
 
+    this.routerSub = this.router.events
+      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        console.log('Router event:', event.urlAfterRedirects);
+        if (event.urlAfterRedirects.includes('/catalog')) {
+          console.log('Reloading products for /catalog');
+          this.loadProducts();
+        }
+      });
   }
+
+  ngOnDestroy(): void {
+    this.routerSub?.unsubscribe();
+  }
+
+  onSearch(search: string): void {
+
+  this.productService.getProducts(search).subscribe({
+
+    next: (products) => {
+
+      this.products = products;
+
+    },
+
+    error: (error) => {
+
+      console.error('Error al buscar productos:', error);
+
+    }
+
+  });
+
+}
 
   // ======================================================
   // CARGAR PRODUCTOS DESDE LA API
@@ -74,6 +116,7 @@ export class CatalogPageComponent {
         console.log( 'Productos recibidos desde la API:', products );
 
         this.products = products;
+        this.cd.detectChanges();
 
       },
 
