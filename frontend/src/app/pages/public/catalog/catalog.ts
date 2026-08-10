@@ -24,6 +24,9 @@ import { Product } from '../../../interfaces/product.interface';
 // Componente del buscador
 import { CatalogSearchComponent } from '../../../components/public/catalog-search/catalog-search';
 
+// Módulo para enlaces de formulario
+import { FormsModule } from '@angular/forms';
+
 @Component({
 
   selector: 'app-catalog-page',
@@ -35,7 +38,8 @@ import { CatalogSearchComponent } from '../../../components/public/catalog-searc
     CommonModule,
     CatalogFiltersComponent,
     ProductCardComponent,
-    CatalogSearchComponent
+    CatalogSearchComponent, 
+    FormsModule
 
   ],
 
@@ -52,6 +56,10 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
   // ======================================================
 
   products: Product[] = [];
+
+  filteredProducts: Product[] = [];
+
+  sortOrder: string = 'relevance';
 
   // ======================================================
   // CONSTRUCTOR
@@ -116,6 +124,7 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
         console.log( 'Productos recibidos desde la API:', products );
 
         this.products = products;
+        this.filteredProducts = products;
         this.cd.detectChanges();
 
       },
@@ -130,4 +139,72 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
 
   }
 
+  // ======================================================
+// APLICAR FILTROS
+// ======================================================
+
+sortProducts(): void {
+
+  if (this.sortOrder === 'price-asc') {
+
+    this.filteredProducts.sort(
+      (a, b) => a.price - b.price
+    );
+
+  }
+
+  else if (this.sortOrder === 'price-desc') {
+
+    this.filteredProducts.sort(
+      (a, b) => b.price - a.price
+    );
+
+  }
+
 }
+
+applyFilters(filters: {
+  categories: string[];
+  brands: string[];
+}): void {
+
+  
+
+  this.filteredProducts = this.products.filter(product => {
+
+    // --------------------------------------------------
+    // FILTRO POR CATEGORÍA
+    // --------------------------------------------------
+
+    const categoryMatch =
+      filters.categories.length === 0 ||
+      filters.categories.includes(product.category);
+
+
+    // --------------------------------------------------
+    // FILTRO POR MARCA
+    // --------------------------------------------------
+
+    const brandMatch =
+      filters.brands.length === 0 ||
+      filters.brands.includes(product.brand);
+
+
+    // --------------------------------------------------
+    // PRODUCTO CUMPLE LOS FILTROS
+    // --------------------------------------------------
+
+    return categoryMatch && brandMatch;
+
+  });
+
+  // --------------------------------------------------
+  // Ordenar Productos
+  //---------------------------------------------------
+
+  this.sortProducts();
+
+  
+}
+}
+

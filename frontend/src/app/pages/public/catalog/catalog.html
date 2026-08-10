@@ -28,7 +28,10 @@
 
         <!-- Panel de filtros -->
 
-        <app-catalog-filters></app-catalog-filters>
+        <app-catalog-filters
+        (filtersChange)="applyFilters($event)">
+            
+        </app-catalog-filters>
 
 
 
@@ -45,6 +48,35 @@
 
     </h2>
 
+    <!-- Controles de ordenamiento precio -->
+
+<div class="sort-container">
+
+    <label for="sort">
+        Ordenar por:
+    </label>
+
+    <select
+        id="sort"
+        [(ngModel)]="sortOrder"
+        (change)="sortProducts()">
+
+        <option value="relevance">
+            Más relevantes
+        </option>
+
+        <option value="price-asc">
+            Precio: menor a mayor
+        </option>
+
+        <option value="price-desc">
+            Precio: mayor a menor
+        </option>
+
+    </select>
+
+</div>
+
 
     <!-- ======================================================
     BUSCADOR DEL CATÁLOGO
@@ -60,7 +92,7 @@
 
         <app-product-card
 
-            *ngFor="let product of products"
+            *ngFor="let product of filteredProducts"
 
             [product]="product">
 

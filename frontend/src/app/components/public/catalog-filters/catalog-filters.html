@@ -1,97 +1,91 @@
+<h2>
+    Filtros
+</h2>
+
+<hr>
+
 <!-- ======================================================
-     FILTROS DEL CATÁLOGO
+    CATEGORÍAS
 ====================================================== -->
 
-<aside class="filters">
+<section>
 
-    <h2>
+    <h3>Categorías</h3>
 
-        Filtros
+    <label>
+        <input
+            type="checkbox"
+            (change)="toggleCategory('Mouse', $any($event.target).checked)"
+        >
+        Mouse
+    </label>
 
-    </h2>
+    <label>
+        <input
+            type="checkbox"
+            (change)="toggleCategory('Teclados', $any($event.target).checked)"
+        >
+        Teclados
+    </label>
 
-    <hr>
+    <label>
+        <input
+            type="checkbox"
+            (change)="toggleCategory('Audifonos', $any($event.target).checked)"
+        >
+        Audífonos
+    </label>
 
-    <!-- Categorías -->
+    <label>
+        <input
+            type="checkbox"
+            (change)="toggleCategory('Monitores', $any($event.target).checked)"
+        >
+        Monitores
+    </label>
 
-    <section>
+</section>
 
-        <h3>Categorías</h3>
+<hr>
 
-        <label>
+<!-- ======================================================
+    MARCAS
+====================================================== -->
 
-            <input type="checkbox">
+<section>
 
-            Mouse
+    <h3>Marcas</h3>
 
-        </label>
+    <label>
+        <input
+            type="checkbox"
+            (change)="toggleBrand('Logitech', $any($event.target).checked)"
+        >
+        Logitech
+    </label>
 
-        <label>
+    <label>
+        <input
+            type="checkbox"
+            (change)="toggleBrand('HyperX', $any($event.target).checked)"
+        >
+        HyperX
+    </label>
 
-            <input type="checkbox">
+    <label>
+        <input
+            type="checkbox"
+            (change)="toggleBrand('Redragon', $any($event.target).checked)"
+        >
+        Redragon
+    </label>
 
-            Teclados
+    <label>
+        <input
+            type="checkbox"
+            (change)="toggleBrand('Asus', $any($event.target).checked)"
+        >
+        ASUS
+    </label>
 
-        </label>
-
-        <label>
-
-            <input type="checkbox">
-
-            Audífonos
-
-        </label>
-
-        <label>
-
-            <input type="checkbox">
-
-            Monitores
-
-        </label>
-
-    </section>
-
-    <hr>
-
-    <!-- Marcas -->
-
-    <section>
-
-        <h3>Marcas</h3>
-
-        <label>
-
-            <input type="checkbox">
-
-            Logitech
-
-        </label>
-
-        <label>
-
-            <input type="checkbox">
-
-            HyperX
-
-        </label>
-
-        <label>
-
-            <input type="checkbox">
-
-            Redragon
-
-        </label>
-
-        <label>
-
-            <input type="checkbox">
-
-            ASUS
-
-        </label>
-
-    </section>
-
-</aside>
+</section>
