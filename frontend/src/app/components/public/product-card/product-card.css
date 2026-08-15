@@ -2,7 +2,7 @@
    TARJETA DEL PRODUCTO
 ====================================================== */
 
-.product-card{
+.product-card {
 
     background: white;
 
@@ -10,27 +10,37 @@
 
     overflow: hidden;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
 
     transition: .3s;
 
     cursor: pointer;
 
+    width: 100%;
+
+    box-sizing: border-box;
+
 }
 
-.product-card:hover{
+
+/* ======================================================
+   EFECTO HOVER
+====================================================== */
+
+.product-card:hover {
 
     transform: translateY(-8px);
 
-    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .15);
 
 }
+
 
 /* ======================================================
    IMAGEN
 ====================================================== */
 
-.product-image{
+.product-image {
 
     width: 100%;
 
@@ -42,19 +52,25 @@
 
     background: #f7f7f7;
 
+    box-sizing: border-box;
+
 }
+
 
 /* ======================================================
    INFORMACIÓN
 ====================================================== */
 
-.product-info{
+.product-info {
 
     padding: 20px;
 
+    box-sizing: border-box;
+
 }
 
-.product-info h3{
+
+.product-info h3 {
 
     font-size: 22px;
 
@@ -64,135 +80,245 @@
 
 }
 
+
 /* ======================================================
    MARCA
 ====================================================== */
 
-.brand{
+.brand {
 
-    color:#666;
+    color: #666;
 
-    margin-bottom:8px;
+    margin-bottom: 8px;
 
 }
+
 
 /* ======================================================
    CATEGORÍA
 ====================================================== */
 
-.category{
+.category {
 
-    color:#888;
+    color: #888;
 
-    margin-bottom:12px;
+    margin-bottom: 12px;
 
 }
+
 
 /* ======================================================
    STOCK
 ====================================================== */
 
-.stock{
+.stock {
 
-    font-weight:bold;
+    font-weight: bold;
 
-    margin-bottom:15px;
-
-}
-
-.available{
-
-    color:#28a745;
+    margin-bottom: 15px;
 
 }
 
-.unavailable{
 
-    color:#dc3545;
+.available {
+
+    color: #28a745;
 
 }
+
+
+.unavailable {
+
+    color: #dc3545;
+
+}
+
 
 /* ======================================================
    PRECIO
 ====================================================== */
 
-.price{
+.price {
 
-    font-size:26px;
+    font-size: 26px;
 
-    font-weight:bold;
+    font-weight: bold;
 
-    color:var(--primary-dark);
+    color: var(--primary-dark);
 
-    margin-bottom:20px;
+    margin-bottom: 20px;
 
 }
+
 
 /* ======================================================
    BOTÓN
 ====================================================== */
 
-button{
+button {
 
-    width:100%;
+    width: 100%;
 
-    border:none;
+    border: none;
 
-    padding:14px;
+    padding: 14px;
 
-    border-radius:10px;
+    border-radius: 10px;
 
-    background:var(--primary);
+    background: var(--primary);
 
-    color:white;
+    color: white;
 
-    font-size:16px;
+    font-size: 16px;
 
-    font-weight:bold;
+    font-weight: bold;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:.3s;
-
-}
-
-button:hover{
-
-    background:var(--primary-dark);
+    transition: .3s;
 
 }
 
-button:disabled{
 
-    background:#bdbdbd;
+button:hover {
 
-    cursor:not-allowed;
+    background: var(--primary-dark);
 
 }
 
-/* Responsive tweaks for product card */
+
+button:disabled {
+
+    background: #bdbdbd;
+
+    cursor: not-allowed;
+
+}
+
+
+/* ======================================================
+   TABLET
+====================================================== */
+
 @media (max-width: 900px) {
-    .product-image{
+
+    .product-image {
+
         height: 180px;
+
         padding: 16px;
+
     }
 
-    .product-info h3{
-        font-size: 20px;
+
+    .product-info {
+
+        padding: 18px;
+
     }
+
+
+    .product-info h3 {
+
+        font-size: 20px;
+
+    }
+
+
+    .price {
+
+        font-size: 23px;
+
+    }
+
 }
+
+
+/* ======================================================
+   CELULAR
+====================================================== */
 
 @media (max-width: 600px) {
-    .product-image{
-        height: 150px;
-        padding: 12px;
+
+    .product-image {
+
+        height: 190px;
+
+        padding: 15px;
+
     }
 
-    .product-info{
-        padding: 12px;
+
+    .product-info {
+
+        padding: 16px;
+
     }
 
-    .product-info h3{
+
+    .product-info h3 {
+
+        font-size: 19px;
+
+    }
+
+
+    .price {
+
+        font-size: 22px;
+
+    }
+
+
+    .stock {
+
+        font-size: 14px;
+
+    }
+
+
+    button {
+
+        padding: 12px;
+
+        font-size: 15px;
+
+    }
+
+}
+
+
+/* ======================================================
+   CELULAR PEQUEÑO
+====================================================== */
+
+@media (max-width: 400px) {
+
+    .product-image {
+
+        height: 170px;
+
+    }
+
+
+    .product-info {
+
+        padding: 14px;
+
+    }
+
+
+    .product-info h3 {
+
         font-size: 18px;
+
     }
+
+
+    .price {
+
+        font-size: 21px;
+
+    }
+
 }

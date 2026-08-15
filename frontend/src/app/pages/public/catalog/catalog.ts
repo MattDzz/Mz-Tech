@@ -93,23 +93,25 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
 
   onSearch(search: string): void {
 
-  this.productService.getProducts(search).subscribe({
+    this.productService.getProducts(search).subscribe({
 
-    next: (products) => {
+      next: (products) => {
 
-      this.products = products;
+        this.products = products;
+        this.filteredProducts = products;
+        this.cd.detectChanges();
 
-    },
+      },
 
-    error: (error) => {
+      error: (error) => {
 
-      console.error('Error al buscar productos:', error);
+        console.error('Error al buscar productos:', error);
 
-    }
+      }
 
-  });
+    });
 
-}
+  }
 
   // ======================================================
   // CARGAR PRODUCTOS DESDE LA API

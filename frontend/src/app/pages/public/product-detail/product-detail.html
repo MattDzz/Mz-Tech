@@ -1,1 +1,195 @@
-<p>product-detail works!</p>
+<!-- ======================================================
+     DETALLE DEL PRODUCTO
+====================================================== -->
+
+<div class="product-detail-container">
+
+    <!-- ==================================================
+         CARGANDO
+    =================================================== -->
+
+    <div *ngIf="loading" class="loading">
+
+        <p>
+            Cargando producto...
+        </p>
+
+    </div>
+
+
+    <!-- ==================================================
+         PRODUCTO NO ENCONTRADO
+    =================================================== -->
+
+    <div *ngIf="!loading && error" class="error">
+
+        <h2>
+            Producto no encontrado
+        </h2>
+
+        <p>
+            El producto que buscas no existe o
+            ya no está disponible.
+        </p>
+
+        <button
+            type="button"
+            class="back-button"
+            (click)="backToCatalog()">
+
+            ← Volver al catálogo
+
+        </button>
+
+    </div>
+
+
+    <!-- ==================================================
+         PRODUCTO ENCONTRADO
+    =================================================== -->
+
+    <div
+        *ngIf="!loading && !error && product"
+        class="product-view">
+
+        <!-- ==================================================
+             BOTÓN VOLVER
+        =================================================== -->
+
+        <button
+            type="button"
+            class="back-button"
+            (click)="backToCatalog()">
+
+            ← Volver al catálogo
+
+        </button>
+
+
+        <!-- ==================================================
+             TARJETA DEL PRODUCTO
+        ================================================== -->
+
+        <div class="product-detail-card">
+
+
+            <!-- ==================================================
+                 IMAGEN
+            ================================================== -->
+
+            <div class="product-image-container">
+
+                <img
+                    [src]="product.image"
+                    [alt]="product.name"
+                    class="product-image"
+                >
+
+            </div>
+
+
+            <!-- ==================================================
+                 INFORMACIÓN
+            ================================================== -->
+
+            <div class="product-info">
+
+
+                <!-- Nombre -->
+
+                <h1>
+                    {{ product.name }}
+                </h1>
+
+
+                <!-- Marca -->
+
+                <p class="product-brand">
+                    {{ product.brand }}
+                </p>
+
+
+                <!-- Categoría -->
+
+                <p class="product-category">
+                    Categoría: {{ product.category }}
+                </p>
+
+
+                <!-- ==================================================
+                     DESCRIPCIÓN
+                ================================================== -->
+
+                <div class="description">
+
+                    <h2 class="description-title">
+                        Descripción
+                    </h2>
+
+                    <p class="product-description">
+                        {{ product.description }}
+                    </p>
+
+                </div>
+
+
+                <!-- ==================================================
+                     PRECIO
+                ================================================== -->
+
+                <p class="product-price">
+
+                    {{ product.price | currency:'COP':'symbol':'1.0-0' }}
+
+                </p>
+
+
+                <!-- ==================================================
+                     STOCK DISPONIBLE
+                ================================================== -->
+
+                <p
+                    *ngIf="product.stock > 0"
+                    class="product-stock available">
+
+                    ✔ Disponible
+                    ({{ product.stock }} unidades)
+
+                </p>
+
+
+                <!-- ==================================================
+                     PRODUCTO AGOTADO
+                ================================================== -->
+
+                <p
+                    *ngIf="product.stock === 0"
+                    class="product-stock unavailable">
+
+                    ❌ Agotado
+
+                </p>
+
+
+                <!-- ==================================================
+                     WHATSAPP
+                ================================================== -->
+
+                <button
+                    type="button"
+                    class="whatsapp-button"
+                    [disabled]="product.stock === 0"
+                    (click)="contactWhatsApp()">
+
+                    💬 Consultar por WhatsApp
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
