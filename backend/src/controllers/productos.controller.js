@@ -67,7 +67,6 @@ const actualizarProducto = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "Producto actualizado correctamente",
-            data: resultado
         });
 
     } catch (error) {
@@ -94,7 +93,6 @@ const eliminarProducto = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "Producto eliminado correctamente",
-            data: resultado
         });
 
     } catch (error) {

@@ -30,8 +30,10 @@ const agregarProducto = async (producto) => {
         throw new Error("La marca es obligatoria");
     }
 
-    return await productosModel.agregarProducto(producto);
-
+const result = await productosModel.agregarProducto(producto);
+return {
+    id: result.insertId
+};
 };
 
 const actualizarProducto = async (id, producto) => {
