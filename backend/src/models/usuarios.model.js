@@ -1,3 +1,6 @@
+const pool = require('../config/database');
+
+
 const agregarUsuario = async (usuario) => {
 
     const {
@@ -25,4 +28,20 @@ const agregarUsuario = async (usuario) => {
 
     return result;
 
+};
+
+const buscarUsuarioPorCorreo = async (correo) => {
+    const [rows] = await pool.query(
+        `SELECT * FROM usuarios WHERE correo = ? AND estado = 1`,
+        [correo]
+    );
+
+    return rows[0];
+};
+
+
+
+module.exports = {
+    agregarUsuario,
+    buscarUsuarioPorCorreo
 };
