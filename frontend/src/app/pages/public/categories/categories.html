@@ -1,1 +1,63 @@
-<p>categories works!</p>
+<!-- ======================================================
+     ENCABEZADO
+====================================================== -->
+
+<div class="categories-header">
+
+    <h1>
+        Categorías
+    </h1>
+
+    <p>
+        Explora nuestros productos por categoría.
+    </p>
+
+</div>
+
+
+<!-- ======================================================
+     CONTENEDOR
+====================================================== -->
+
+<div class="categories-container">
+
+
+    <!-- ==================================================
+         GRID DE CATEGORÍAS
+    =================================================== -->
+
+    <div class="categories-grid">
+
+
+        <!-- ==================================================
+             CATEGORÍA
+        =================================================== -->
+
+        <div
+            class="category-card"
+            *ngFor="let category of categories"
+        >
+
+            <div class="category-icon">
+                📦
+            </div>
+
+
+            <div class="category-info">
+
+                <h2>
+                    {{ category.name }}
+                </h2>
+
+                <p>
+                    {{ category.description }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
