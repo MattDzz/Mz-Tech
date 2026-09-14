@@ -10,10 +10,14 @@
         <input
             type="text"
             placeholder="Buscar productos..."
+            [(ngModel)]="search"
         >
 
         <!-- Botón -->
-        <button>
+        <button
+        type="button"
+        (click)="onSearch()"
+        >
 
             🔍 Buscar
 

@@ -1,1 +1,52 @@
-<p>login works!</p>
+<div class="login-page">
+
+    <div class="login-card">
+
+        <div class="login-header">
+            <div class="login-icon">
+                👤
+            </div>
+
+            <h1>Iniciar sesión</h1>
+
+            <p>Acceso al panel administrativo de MZTech</p>
+        </div>
+
+        <form (ngSubmit)="login()">
+
+            <div class="form-group">
+                <label for="correo">Correo electrónico</label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    [(ngModel)]="correo"
+                    placeholder="Ingresa tu correo"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    [(ngModel)]="password"
+                    placeholder="Ingresa tu contraseña"
+                >
+            </div>
+
+            <button
+                type="submit"
+                class="btn-login-submit"
+            >
+                Iniciar sesión
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

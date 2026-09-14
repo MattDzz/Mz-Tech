@@ -4,7 +4,7 @@
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { ChangeDetectorRef } from '@angular/core';
@@ -70,22 +70,23 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
   constructor(
     private productService: ProductService,
     private router: Router,
+    private route: ActivatedRoute, /* leer la imformacionde la URL */
     private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-    this.loadProducts();
+  this.route.queryParams.subscribe(params => {
 
-    this.routerSub = this.router.events
-      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        console.log('Router event:', event.urlAfterRedirects);
-        if (event.urlAfterRedirects.includes('/catalog')) {
-          console.log('Reloading products for /catalog');
-          this.loadProducts();
-        }
-      });
-  }
+    const search = params['buscar'] || '';
+
+    if (search) {
+      this.onSearch(search);
+    } else {
+      this.loadProducts();
+    }
+
+  });
+}
 
   ngOnDestroy(): void {
     this.routerSub?.unsubscribe();

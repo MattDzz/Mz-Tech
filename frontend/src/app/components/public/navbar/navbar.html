@@ -1,11 +1,11 @@
 <nav class="navbar">
     
 
-    <div class="logo">
+    <a class="logo" routerLink="/"> <!-- convierte el logo en un enlace a la página de inicio -->
         
         <h2>🖥️ MZTECH</h2>
 
-    </div>
+    </a>
 
     <ul class="menu">
 
@@ -22,9 +22,33 @@
 
     <div class="actions">
 
-        <button class="btn-whatsapp">WhatsApp</button>
+        <button class="btn-whatsapp"
+        type="button"
+        (click)="openWhatsApp()" ><!-- abre whatsapp al dar click -->
+            WhatsApp
+        </button>
 
-        <button class="btn-login">Iniciar Sesión</button>
+        <a class="btn-login"
+        routerLink="/admin/login"
+        title="Iniciar sesión"
+        aria-label="Iniciar sesión">
+        
+        <svg
+        
+        class="icon-user"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        >
+        
+        <path d="M20 21a8 8 0 0 0-16 0"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+</a>
 
         
     </div>

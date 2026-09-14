@@ -55,9 +55,10 @@ export const routes: Routes = [
         ]
     },
 
-/* //Admin routes
+ //Admin routes
     {path: 'admin/login', component: LoginPageComponent},
-    {path: 'admin/dashboard', component: DashboardPageComponent},
+    
+    /*{path: 'admin/dashboard', component: DashboardPageComponent},
     {path: 'admin/users', component: UsersPageComponent},
     {path: 'admin/products', component: ProductsPageComponent},
     {path: 'admin/inventory', component: InventoryPageComponent},
